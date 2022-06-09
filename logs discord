@@ -1,0 +1,22 @@
+function discord_log(type, text)
+
+    local logURL
+
+    if type == 'logs' then
+        logURL = "https://discord.com/api/webhooks/984243310422020166/D7i79_pFH9c-zpdG1uVoWZd-j60WmRFMSQP-NKirCdbUpluzvbOsxeQng43QbwcWrMoB"
+    elseif type == 'test' then
+        logURL = "https://discord.com/api/webhooks/984243310422020166/D7i79_pFH9c-zpdG1uVoWZd-j60WmRFMSQP-NKirCdbUpluzvbOsxeQng43QbwcWrMoB"
+    end
+
+    HTTP({
+        url = 'Ссылка на файл',
+        method = "POST",
+        parameters = {
+            url = logURL,
+            content = text,
+            password = 'pass'
+        },
+        success = function (code, body, headers) end,
+        failed = function (reason) Msg(reason) end
+    })
+end
